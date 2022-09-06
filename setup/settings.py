@@ -38,6 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'crispy_forms',
+    'accounts',
+    'administrador',
+    'categoria',
+    'cliente',
+    'itens',
+    'locacao',
+    'quarto',
+    'servicos',
+    
 ]
 
 MIDDLEWARE = [
@@ -106,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-BR'
 
-LANGUAGE_CODE = 'pt-BR'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -127,5 +138,5 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#AUTH_USER_MODEL = 'accounts.User'
-#CRISPY_TEMPLATE_PACK = 'bootstrap4'
+AUTH_USER_MODEL = 'accounts.User'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
