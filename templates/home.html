@@ -57,7 +57,26 @@
               <div class="col-8">
                 <hr class="mt-0 mb-4">
                 {% block container %}
-
+                
+                <h1>Seja bem vindo!</h1>
+                    <p>Este sistema gerencia seu hotel</p>
+                    
+                    <a href="{% url 'categorias:home_categoria' %}">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Categoria</button>
+                    </a><br>
+                    <a href="{% url 'clientes:home_cliente' %}">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Clientes</button>
+                    </a><br>
+                    <a href="{% url 'itens:home_itens' %}">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Itens</button>
+                    </a><br>
+                    <a href="{% url 'quartos:home_quarto' %}">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Quartos</button>
+                    </a><br>
+                    <a href="#">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Locações</button>
+                    </a><br>
+                    
                     
 
                 {% endblock %}

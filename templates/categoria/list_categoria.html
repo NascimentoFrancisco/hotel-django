@@ -1,0 +1,22 @@
+{% extends '../home.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
+<h1>Lista de categorias</h1>
+<br>
+    {% for categoria in object_list %}         
+        <tr>
+            <td>
+                <p><strong>Categoria:</strong> {{categoria.nome}} 
+            
+                <a href="{% url 'categorias:update_categoria' categoria.id%}" class="text-primary">
+                    Alterar
+                </a>
+            
+                <a href="{% url 'categorias:delete_categoria' categoria.id%}" class="text-danger">
+                    Apagar
+                </a>
+                </p>
+            </td>   
+        </tr>
+    {% endfor %}
+{% endblock %}

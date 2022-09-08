@@ -1,0 +1,22 @@
+{% extends '../home.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
+<h1>Lista de itens para os frigobares</h1>
+<br>
+    {% for item in object_list %}         
+        <tr>
+            <td>
+                <p><strong>Curso:</strong> {{item.nome}} 
+            
+                <a href="{% url 'itens:update-itens-frigobar' item.id %}" class="text-primary">
+                    Alterar
+                </a>
+            
+                <a href="{% url 'itens:delete-itens-frigobar' item.id %}" class="text-danger">
+                    Apagar
+                </a>
+                </p>
+            </td>   
+        </tr>
+    {% endfor %}
+{% endblock %}

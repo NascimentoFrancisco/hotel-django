@@ -4,7 +4,14 @@
         {% block container %}
         <h4>Página das categorias de quarto</h4>
         <p>Nesta página você terá a possibilidade de gerenciar as categorias referentes aos quartos desse hotel.</p>
-        
+        <center><h3><strong>Opções</strong></h3></center>
+        <a href="{% url 'categorias:create_categoria' %}">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar categoria</button>
+        </a>
+        <br>
+        <a href="{% url 'categorias:list_categoria' %}">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Listar categorias</button>
+        </a>
         
         {% endblock %}
     </body>

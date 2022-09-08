@@ -1,12 +1,13 @@
-{% extends 'home.html' %}
+{% extends '../home.html' %}
 {% load crispy_forms_tags %}
 {% block container %}
-<h2>Cadastrados e alterações</h2>
+<h2>Exclusão de itens do quarto</h2>
+<p>Deseja realmente excluir o item: <strong>{{ object }}</strong> do quarto?</p>
     <form method="POST" class="table" enctype="multipart/form-data">
     {% csrf_token %}
         <div class="form-group">
             {{form|crispy}}
         </div>
-        <button type="submit" class="save btn btn-success ">Salvar</button>
+        <button type="submit" class="save btn btn-danger ">Delete</button>
     </form>
 {% endblock %}

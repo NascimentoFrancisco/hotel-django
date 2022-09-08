@@ -7,4 +7,4 @@ class Quarto(models.Model):
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.numero
+        return str(self.numero)
