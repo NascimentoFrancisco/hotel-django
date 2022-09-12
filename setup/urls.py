@@ -11,5 +11,5 @@ urlpatterns = [
     path('itens/',include('itens.urls',namespace='itens')),
     path('clientes/',include('cliente.urls',namespace='clientes')),
     path('quartos/',include('quarto.urls',namespace='quartos')),
-    #path('servicos/',include('servicos.urls',namespace='servicos')),
+    path('servicos/',include('servicos.urls',namespace='servicos')),
 ]
