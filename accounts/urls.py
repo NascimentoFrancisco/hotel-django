@@ -6,6 +6,7 @@ app_name = "accounts"
 urlpatterns = [
     path('create/', views.CrateUser.as_view(), name='create_user'),
     path('login_user/', views.LoginUser.as_view(), name='login_user'),
+    path('logout',views.LogoutUser.as_view(),name='logout'),
     #path('',views.HomeCategoria.as_view(), name='home_categoria'),
     #path('registro/', views.CreateCategoria.as_view(), name='create_categoria'),
     #path('list/', views.ListCategoria.as_view(), name='list_categoria'),
