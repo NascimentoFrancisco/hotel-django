@@ -3,23 +3,28 @@
     <body>
         {% block container %}
         <h4>Página dos itens de quarto e frigobar</h4>
-        <p>Nessa página você pode gerenciar os itens dos quartos e do frigobar.</p>
-        <center><h3><strong>Opções</strong></h3></center>
-        <a href="{% url 'itens:create_itens_quarto' %}">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar itens para quartos</button>
-        </a>
-        <br>
-        <a href="{% url 'itens:create_itens_frigobar' %}">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar itens para frigobar</button>
-        </a>
-        <br>
-        <a href="{% url 'itens:list_itens_quarto' %}">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Listar itens dos quartos</button>
-        </a>
-        <br>
-        <a href="{% url 'itens:list_itens_frigobar' %}">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Listar itens do frigobar</button>
-        </a>
+        {% if user.is_authenticated or user.is_superuser %}
+            <p>Nessa página você pode gerenciar os itens dos quartos e do frigobar.</p>
+            <center><h3><strong>Opções</strong></h3></center>
+            <a href="{% url 'itens:create_itens_quarto' %}">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar itens para quartos</button>
+            </a>
+            <br>
+            <a href="{% url 'itens:create_itens_frigobar' %}">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar itens para frigobar</button>
+            </a>
+            <br>
+            <a href="{% url 'itens:list_itens_quarto' %}">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Listar itens dos quartos</button>
+            </a>
+            <br>
+            <a href="{% url 'itens:list_itens_frigobar' %}">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Listar itens do frigobar</button>
+            </a>
+        {% else %}
+            <br>
+            <h3>Você não possui acesso a esta página.</h3>
+        {% endif %}
         {% endblock %}
     </body>
 </html>

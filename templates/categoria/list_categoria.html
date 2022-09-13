@@ -2,7 +2,8 @@
 {% load crispy_forms_tags %}
 {% block container %}
 <h1>Lista de categorias</h1>
-<br>
+{% if user.is_authenticated or user.is_superuser %}
+    <br>
     {% for categoria in object_list %}         
         <tr>
             <td>
@@ -19,4 +20,8 @@
             </td>   
         </tr>
     {% endfor %}
+{% else %}
+    <br>
+    <h3>Você não possui acesso a esta página.</h3>
+{% endif %}
 {% endblock %}

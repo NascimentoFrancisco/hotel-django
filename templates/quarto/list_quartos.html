@@ -2,8 +2,9 @@
 {% load crispy_forms_tags %}
 {% block container %}
 <h1>Lista de quartos</h1>
-<br>
-    {% for quarto in object_list %}         
+    {% if user.is_authenticated or user.is_superuser %}
+    <br>
+        {% for quarto in object_list %}         
         <tr>
             <td>
                 <p><strong>Quarto:</strong> {{quarto.numero}} 
@@ -19,4 +20,8 @@
             </td>   
         </tr>
     {% endfor %}
+{% else %}
+    <br>
+    <h3>Você não possui acesso a esta página.</h3>
+{% endif %}
 {% endblock %}

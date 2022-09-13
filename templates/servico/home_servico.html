@@ -3,16 +3,20 @@
     <body>
         {% block container %}
         <h4>Página dos serviços</h4>
-        <p>Nesta página você terá a possibilidade de gerenciar os serviços desse hotel.</p>
-        <center><h3><strong>Opções</strong></h3></center>
-        <a href="{% url 'servicos:create_servico' %}">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar serviços</button>
-        </a>
-        <br>
-        <a href="{% url 'servicos:list_servico' %}">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Listar serviços</button>
-        </a>
-        
+        {% if user.is_authenticated or user.is_superuser %}
+            <p>Nesta página você terá a possibilidade de gerenciar os serviços desse hotel.</p>
+            <center><h3><strong>Opções</strong></h3></center>
+            <a href="{% url 'servicos:create_servico' %}">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar serviços</button>
+            </a>
+            <br>
+            <a href="{% url 'servicos:list_servico' %}">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Listar serviços</button>
+            </a>
+        {% else %}
+            <br>
+            <h3>Você não possui acesso a esta página.</h3>
+        {% endif %}
         {% endblock %}
     </body>
 </html>

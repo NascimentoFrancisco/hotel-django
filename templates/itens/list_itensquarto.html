@@ -3,6 +3,7 @@
 {% block container %}
 <h1>Lista de itens dos quartos</h1>
 <br>
+{% if user.is_authenticated or user.is_superuser %}
     {% for item in object_list %}         
         <tr>
             <td>
@@ -19,4 +20,8 @@
             </td>   
         </tr>
     {% endfor %}
+{% else %}
+    <br>
+    <h3>Você não possui acesso a esta página.</h3>
+{% endif %}    
 {% endblock %}
