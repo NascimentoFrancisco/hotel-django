@@ -12,4 +12,5 @@ urlpatterns = [
     path('clientes/',include('cliente.urls',namespace='clientes')),
     path('quartos/',include('quarto.urls',namespace='quartos')),
     path('servicos/',include('servicos.urls',namespace='servicos')),
+    path('locacoes/',include('locacao.urls',namespace='locacoes')),
 ]

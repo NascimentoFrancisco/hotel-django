@@ -36,8 +36,8 @@ class UpdateServico(UpdateView):
 
 class DeleteServico(DeleteView):
     model =Servico
-    template_name = 'servico/delete_quartos.html'
-    success_url = reverse_lazy('quartos:home_servico')
+    template_name = 'servico/delete_servico.html.html'
+    success_url = reverse_lazy('servicos:home_servico')
 
     def get_success_url(self):
         return reverse_lazy('servicos:home_servico')
