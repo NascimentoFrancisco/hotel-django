@@ -10,9 +10,9 @@ class LocacaoCreaateForms(forms.ModelForm):
 
         widgets = {
             'nome': forms.TextInput(attrs={'class':'form-control'}),
-            'check_in': forms.DateInput(format='%d/%m/%Y'),#Error
-            'check_out': forms.DateInput(format='%d/%m/%Y'),#Error
-            'status': forms.BooleanField(required=False),
-            'quarto':forms.Select(attrs={'class':'form-control'}),
+            'check_in': forms.TextInput(attrs={'class':'form-control','type':'date'}),
+            'check_out': forms.TextInput(attrs={'class':'form-control','type':'date'}),
+            'status': forms.CheckboxInput(),
+            'quarto':forms.SelectMultiple(attrs={'class':'form-control'}),
             'servicos':forms.SelectMultiple(attrs={'class':'form-control'}),
         }

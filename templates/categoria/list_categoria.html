@@ -3,23 +3,40 @@
 {% block container %}
 <h1>Lista de categorias</h1>
 {% if user.is_authenticated or user.is_superuser %}
-    <br>
-    {% for categoria in object_list %}         
-        <tr>
+        <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Categoria</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Frigobar</th>
+            <th scope="col">Itens do quarto</th>
+            <th scope="col">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for categoria in object_list %}         
+          <tr>
+            <td>{{categoria.nome}}</td>
+            <td>{{categoria.preco}}</td>
+            <td>{% for itens in categoria.frigobar.all %}
+                {{itens }}<br/>
+            {% endfor %}</td>
+            <td>{% for itens in categoria.itens_quarto.all %}
+                {{itens }}<br/>
+            {% endfor %}</td>
             <td>
-                <p><strong>Categoria:</strong> {{categoria.nome}} 
-            
                 <a href="{% url 'categorias:update_categoria' categoria.id%}" class="text-primary">
-                    Alterar
+                    <button type="button" class="btn btn-primary">Alterar</button>
                 </a>
-            
+                
                 <a href="{% url 'categorias:delete_categoria' categoria.id%}" class="text-danger">
-                    Apagar
+                    <button type="button" class="btn btn-danger">Apagar</button>
                 </a>
-                </p>
-            </td>   
-        </tr>
-    {% endfor %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 {% else %}
     <br>
     <h3>Você não possui acesso a esta página.</h3>

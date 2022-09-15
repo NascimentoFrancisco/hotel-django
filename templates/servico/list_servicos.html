@@ -4,22 +4,32 @@
 <h1>Lista de quartos</h1>
 <br>
 {% if user.is_authenticated or user.is_superuser %}
-    {% for servico in object_list %}         
-        <tr>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for servico in object_list %}
+          <tr>
+            <td>{{servico.nome}}</td>
+            <td>{{servico.valor}}</td>
             <td>
-                <p><strong>Quarto:</strong> {{quarto.numero}} 
-            
-                <a href="{% url 'servicos:update_servico' servico.id%}" class="text-primary">
-                    Alterar
+                <a href="{% url 'servicos:update_servico' servico.id%}" class="text-primary"></a>
+                    <button type="button" class="btn btn-primary">Alterar</button>
                 </a>
-            
-                <a href="{% url 'servicos:delete_servico' servico.id%}" class="text-danger">
-                    Apagar
+                
+                <a href="{% url 'servicos:delete_servico' servico.id%}" class="text-danger"></a>
+                    <button type="button" class="btn btn-danger">Apagar</button>
                 </a>
-                </p>
-            </td>   
-        </tr>
-    {% endfor %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 {% else %}
     <br>
     <h3>Você não possui acesso a esta página.</h3>

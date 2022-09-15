@@ -13,4 +13,4 @@ class Locacao(models.Model):
     servicos = models.ManyToManyField(Servico)
 
     def __str__(self):
-        return str(self.quarto.numero)
+        return str(self.cliente)

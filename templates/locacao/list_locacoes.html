@@ -4,22 +4,34 @@
 <h1>Lista de Locações</h1>
 <br>
     {% if user.is_authenticated or user.is_superuser %}
-    {% for locacao in object_list %}         
-        <tr>
-            <td>
-                <p><strong>locação:</strong> {{locacao.nome}} 
-            
-                <a href="{% url 'locacoes:update_locacao' id = locacao.id %}" class="text-primary">
-                    Alterar
-                </a>
-            
-                <a href="{% url 'locacoes:delete_locacao' id = locacao.id %}" class="text-danger">
-                    Apagar
-                </a>
-                </p>
-            </td>   
-        </tr>
-    {% endfor %}
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Quartos</th>
+                <th scope="col">Opções</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for locacao in object_list %}
+              <tr>
+                <td>{{locacao.cliente}}</td>
+                <td>{% for quarto in locacao.quarto.all %}
+                    {{quarto }}<br/>
+                {% endfor %}</td>
+                <td>
+                    <a href="{% url 'locacoes:update_locacao' locacao.id %}" class="text-primary">
+                        <button type="button" class="btn btn-primary">Alterar</button>
+                    </a>
+                    
+                    <a href="{% url 'locacoes:delete_locacao' locacao.id %}" class="text-danger">
+                        <button type="button" class="btn btn-danger">Apagar</button>
+                    </a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
 {% else %}
     <br>
     <h3>Você não possui acesso a esta página.</h3>

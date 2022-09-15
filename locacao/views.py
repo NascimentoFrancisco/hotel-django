@@ -30,8 +30,8 @@ class ListLocacao(ListView):
 class UpdateLocacao(UpdateView):    
     model = Locacao
     template_name = 'create.html'
-    fields = ['nome','valor']
-    success_url = reverse_lazy('servicos:home_locacao')
+    form_class = LocacaoCreaateForms
+    success_url = reverse_lazy('locacoes:home_locacao')
 
     def form_valid(self, form):
         return super().form_valid(form)

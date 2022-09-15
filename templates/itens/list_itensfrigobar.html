@@ -4,22 +4,30 @@
 <h1>Lista de itens para os frigobares</h1>
 <br>
 {% if user.is_authenticated or user.is_superuser %}
-    {% for item in object_list %}         
-        <tr>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Iten para frigobar</th>
+            <th scope="col">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in object_list %}         
+          <tr>
+            <td>{{item.nome}}</td>
             <td>
-                <p><strong>Curso:</strong> {{item.nome}} 
-            
                 <a href="{% url 'itens:update-itens-frigobar' item.id %}" class="text-primary">
-                    Alterar
+                    <button type="button" class="btn btn-primary">Alterar</button>
                 </a>
-            
+                
                 <a href="{% url 'itens:delete-itens-frigobar' item.id %}" class="text-danger">
-                    Apagar
+                    <button type="button" class="btn btn-danger">Apagar</button>
                 </a>
-                </p>
-            </td>   
-        </tr>
-    {% endfor %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 {% else %}
     <br>
     <h3>Você não possui acesso a esta página.</h3>
