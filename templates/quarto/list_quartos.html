@@ -17,11 +17,11 @@
             <td>{{quarto.numero}}</td>
             <td>{{quarto.categoria}}</td>
             <td>
-                <a href="{% url 'quartos:update_quarto' quarto.id%}" class="text-primary"></a>
+                <a href="{% url 'quartos:update_quarto' quarto.id%}" class="text-primary">
                     <button type="button" class="btn btn-primary">Alterar</button>
                 </a>
                 
-                <a href="{% url 'quartos:delete_quarto' quarto.id%}" class="text-danger"></a>
+                <a href="{% url 'quartos:delete_quarto' quarto.id%}" class="text-danger">
                     <button type="button" class="btn btn-danger">Apagar</button>
                 </a>
             </td>

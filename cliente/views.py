@@ -13,7 +13,7 @@ class CreateCliente(CreateView):
     model = Cliente
     template_name = 'create.html'
     fields = ['nome','cpf','telefone']
-    success_url = reverse_lazy('clientes:home_cliente')
+    success_url = reverse_lazy('clientes:list_cliente')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -29,7 +29,7 @@ class UpdateCliente(UpdateView):
     model =Cliente
     template_name = 'create.html'
     fields = ['nome','cpf','telefone']
-    success_url = reverse_lazy('clientes:home_cliente')
+    success_url = reverse_lazy('clientes:list_cliente')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -37,7 +37,7 @@ class UpdateCliente(UpdateView):
 class DeleteCliente(DeleteView):
     model =Cliente
     template_name = 'cliente/delete_cliente.html'
-    success_url = reverse_lazy('clientes:home_cliente')
+    success_url = reverse_lazy('clientes:list_cliente')
 
     def get_success_url(self):
-        return reverse_lazy('clientes:home_cliente')
+        return reverse_lazy('clientes:list_cliente')

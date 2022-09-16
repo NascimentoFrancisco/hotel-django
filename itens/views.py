@@ -13,7 +13,7 @@ class CreateItensfrigobar(CreateView):
     model = Itens_frigobar
     template_name = 'create.html'
     fields = ['nome','preco_item']
-    success_url = reverse_lazy('itens:home_itens')
+    success_url = reverse_lazy('itens:list_itens_frigobar')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -29,7 +29,7 @@ class UpdateItensfrigobar(UpdateView):
     model =Itens_frigobar
     template_name = 'create.html'
     fields = ['nome','preco_item']
-    success_url = reverse_lazy('itens:home_itens')
+    success_url = reverse_lazy('itens:list_itens_frigobar')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -37,17 +37,17 @@ class UpdateItensfrigobar(UpdateView):
 class DeleteItensfrigobar(DeleteView):
     model =Itens_frigobar
     template_name = 'itens/delete_item_frigobar.html'
-    success_url = reverse_lazy('itens:home_itens')
+    success_url = reverse_lazy('itens:list_itens_frigobar')
 
     def get_success_url(self):
-        return reverse_lazy('itens:home_itens')
+        return reverse_lazy('itens:list_itens_frigobar')
 
 #Itens do quarto
 class CreateItensquarto(CreateView):
     model = Itens_quarto
     template_name = 'create.html'
     fields = ['nome',]
-    success_url = reverse_lazy('itens:home_itens')
+    success_url = reverse_lazy('itens:list_itens_quarto')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -63,7 +63,7 @@ class UpdateItensquarto(UpdateView):
     model =Itens_quarto
     template_name = 'create.html'
     fields = ['nome',]
-    success_url = reverse_lazy('itens:home_itens')
+    success_url = reverse_lazy('itens:list_itens_quarto')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -71,7 +71,7 @@ class UpdateItensquarto(UpdateView):
 class DeleteItensquarto(DeleteView):
     model =Itens_quarto
     template_name = 'itens/delete_item_quarto.html'
-    success_url = reverse_lazy('itens:home_itens')
+    success_url = reverse_lazy('itens:list_itens_quarto')
 
     def get_success_url(self):
-        return reverse_lazy('itens:home_itens')
+        return reverse_lazy('itens:list_itens_quarto')

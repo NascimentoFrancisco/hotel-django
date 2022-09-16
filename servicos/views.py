@@ -13,7 +13,7 @@ class CreateServico(CreateView):
     model = Servico
     template_name = 'create.html'
     fields = ['nome','valor']
-    success_url = reverse_lazy('servicos:home_servico')
+    success_url = reverse_lazy('servicos:list_servico')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -29,15 +29,15 @@ class UpdateServico(UpdateView):
     model =Servico
     template_name = 'create.html'
     fields = ['nome','valor']
-    success_url = reverse_lazy('servicos:home_servico')
+    success_url = reverse_lazy('servicos:list_servico')
 
     def form_valid(self, form):
         return super().form_valid(form)
 
 class DeleteServico(DeleteView):
     model =Servico
-    template_name = 'servico/delete_servico.html.html'
-    success_url = reverse_lazy('servicos:home_servico')
+    template_name = 'servico/delete_servico.html'
+    success_url = reverse_lazy('servicos:list_servico')
 
     def get_success_url(self):
-        return reverse_lazy('servicos:home_servico')
+        return reverse_lazy('servicos:list_servico')

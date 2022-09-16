@@ -15,7 +15,7 @@ class CreateLocacao(CreateView):#Falta por uma vefificação para validar se o q
     template_name = 'create.html'
     form_class = LocacaoCreaateForms
     #fields = ['cliente','check_in','check_out','status','quarto','servicos']
-    success_url = reverse_lazy('locacoes:home_locacao')
+    success_url = reverse_lazy('locacoes:list_locacao')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -31,7 +31,7 @@ class UpdateLocacao(UpdateView):
     model = Locacao
     template_name = 'create.html'
     form_class = LocacaoCreaateForms
-    success_url = reverse_lazy('locacoes:home_locacao')
+    success_url = reverse_lazy('locacoes:list_locacao')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -39,7 +39,7 @@ class UpdateLocacao(UpdateView):
 class DeleteLocacao(DeleteView):#falta uma validação para verificar se o quarto pode ser deletado...Pagamento
     model = Locacao
     template_name = 'locacao/delete_locacao.html'
-    success_url = reverse_lazy('locacoes:home_locacao')
+    success_url = reverse_lazy('locacoes:list_locacao')
 
     def get_success_url(self):
-        return reverse_lazy('locacoes:home_locacao')
+        return reverse_lazy('locacoes:list_locacao')

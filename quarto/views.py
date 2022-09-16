@@ -13,7 +13,7 @@ class CreateQuarto(CreateView):
     model = Quarto
     template_name = 'create.html'
     fields = ['numero','categoria']
-    success_url = reverse_lazy('quartos:home_quarto')
+    success_url = reverse_lazy('quartos:list_quarto')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -29,7 +29,7 @@ class UpdateQuarto(UpdateView):
     model =Quarto
     template_name = 'create.html'
     fields = ['numero','categoria']
-    success_url = reverse_lazy('quartos:home_quarto')
+    success_url = reverse_lazy('quartos:list_quarto')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -37,7 +37,7 @@ class UpdateQuarto(UpdateView):
 class DeleteQuarto(DeleteView):
     model =Quarto
     template_name = 'quarto/delete_quartos.html'
-    success_url = reverse_lazy('quartos:home_quarto')
+    success_url = reverse_lazy('quartos:list_quarto')
 
     def get_success_url(self):
-        return reverse_lazy('quartos:home_quarto')
+        return reverse_lazy('quartos:list_quarto')

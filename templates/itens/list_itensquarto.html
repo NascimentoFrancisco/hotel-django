@@ -16,12 +16,12 @@
           <tr>
             <td>{{item.nome}}</td>
             <td>
-                <a href="{% url 'itens:update-itens-quarto' item.id %}" class="text-primary"></a>
-                    <button type="button" class="btn btn-primary">Alterar</button>
+                <a href="{% url 'itens:update-itens-quarto' item.id %}" class="text-primary">
+                  <button type="button" class="btn btn-primary">Alterar</button>
                 </a>
                 
-                <a href="{% url 'itens:delete-itens-quarto' item.id %}" class="text-danger"></a>
-                    <button type="button" class="btn btn-danger">Apagar</button>
+                <a href="{% url 'itens:delete-itens-quarto' item.id %}" class="text-danger">
+                  <button type="button" class="btn btn-danger">Apagar</button>
                 </a>
             </td>
           </tr>

@@ -18,11 +18,11 @@
             <td>{{cliente.nome}}</td>
             <td>{{cliente.cpf}}</td>
             <td>
-                <a href="{% url 'clientes:update_cliente' cliente.id%}" class="text-primary"></a>
-                    <button type="button" class="btn btn-primary">Alterar</button>
-                </a>
+                <a href="{% url 'clientes:update_cliente' cliente.id %}" class="text-primary">
+                  <button type="button" class="btn btn-primary">Alterar</button>
+                </a>               
                 
-                <a href="{% url 'clientes:delete_cliente' cliente.id%}" class="text-danger">
+                <a href="{% url 'clientes:delete_cliente' cliente.id %}" class="text-danger">
                     <button type="button" class="btn btn-danger">Apagar</button>
                 </a>
             </td>

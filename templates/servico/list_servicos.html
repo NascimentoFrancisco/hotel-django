@@ -18,11 +18,11 @@
             <td>{{servico.nome}}</td>
             <td>{{servico.valor}}</td>
             <td>
-                <a href="{% url 'servicos:update_servico' servico.id%}" class="text-primary"></a>
-                    <button type="button" class="btn btn-primary">Alterar</button>
+                <a href="{% url 'servicos:update_servico' servico.id%}" class="text-primary">
+                  <button type="button" class="btn btn-primary">Alterar</button>
                 </a>
                 
-                <a href="{% url 'servicos:delete_servico' servico.id%}" class="text-danger"></a>
+                <a href="{% url 'servicos:delete_servico' servico.id%}" class="text-danger">
                     <button type="button" class="btn btn-danger">Apagar</button>
                 </a>
             </td>

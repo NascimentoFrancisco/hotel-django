@@ -9,6 +9,8 @@
               <tr>
                 <th scope="col">Cliente</th>
                 <th scope="col">Quartos</th>
+                <th scope="col">Check-in</th>
+                <th scope="col">Check-out</th>
                 <th scope="col">Opções</th>
               </tr>
             </thead>
@@ -19,6 +21,8 @@
                 <td>{% for quarto in locacao.quarto.all %}
                     {{quarto }}<br/>
                 {% endfor %}</td>
+                <td>{{locacao.check_in}}</td>
+                <td>{{locacao.check_out}}</td>
                 <td>
                     <a href="{% url 'locacoes:update_locacao' locacao.id %}" class="text-primary">
                         <button type="button" class="btn btn-primary">Alterar</button>

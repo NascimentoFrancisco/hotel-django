@@ -13,7 +13,7 @@ class CreateCategoria(CreateView):
     model = Categoria
     template_name = 'create.html'
     fields = ['nome','preco','frigobar','itens_quarto']
-    success_url = reverse_lazy('categorias:home_categoria')
+    success_url = reverse_lazy('categorias:list_categoria')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -29,7 +29,7 @@ class UpdateCategoria(UpdateView):
     model =Categoria
     template_name = 'create.html'
     fields = ['nome','preco','frigobar','itens_quarto']
-    success_url = reverse_lazy('categorias:home_categoria')
+    success_url = reverse_lazy('categorias:list_categoria')
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -37,7 +37,7 @@ class UpdateCategoria(UpdateView):
 class DeleteCategoria(DeleteView):
     model =Categoria
     template_name = 'categoria/delete_categoria.html'
-    success_url = reverse_lazy('categorias:home_categoria')
+    success_url = reverse_lazy('categorias:list_categoria')
 
     def get_success_url(self):
-        return reverse_lazy('categorias:home_categoria')
+        return reverse_lazy('categorias:list_categoria')
