@@ -12,7 +12,7 @@ class HomeQuarto(View):
 class CreateQuarto(CreateView):
     model = Quarto
     template_name = 'create.html'
-    fields = ['numero','categoria']
+    fields = ['numero','categoria','status']
     success_url = reverse_lazy('quartos:list_quarto')
 
     def form_valid(self, form):
@@ -23,12 +23,13 @@ class ListQuarto(ListView):
 
     def get_queryset(self):
         queryset = Quarto.objects.all()
+        print(queryset)
         return queryset
 
 class UpdateQuarto(UpdateView):    
     model =Quarto
     template_name = 'create.html'
-    fields = ['numero','categoria']
+    fields = ['numero','categoria','status']
     success_url = reverse_lazy('quartos:list_quarto')
 
     def form_valid(self, form):
