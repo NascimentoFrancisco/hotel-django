@@ -9,5 +9,8 @@ class HomeView(View):
 def erro_view_404(request, *args, **kwargs):
     return render(request,'pages_erros/erro_404.html')
 
+def erro_view_403(request, *args, **kwargs):
+    return render(request,'pages_erros/erro_403.html')
+
 def erro_view_500(request, *args, **kwargs):
     return render(request,'pages_erros/erro_500.html')

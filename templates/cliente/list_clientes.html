@@ -1,9 +1,16 @@
 {% extends '../home.html' %}
 {% load crispy_forms_tags %}
 {% block container %}
-<h1>Lista de clientes</h1>
 <br>
     {% if user.is_authenticated or user.is_superuser %}
+    <table class="table table-striped">
+      <th><h1>Lista de clientes</h1></th>
+      <th>
+        <a href="{% url 'clientes:create_cliente' %}" class="text-primary">
+          <button type="button" class="btn btn-primary">Adicionar</button>
+        </a>
+      </th>
+    </table>
     <table class="table table-bordered">
         <thead>
           <tr>

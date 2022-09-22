@@ -1,13 +1,14 @@
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
-from .views import HomeView, erro_view_404, erro_view_500
+from .views import HomeView, erro_view_404,erro_view_403, erro_view_500
 
 from django.urls import re_path as url
 from django.conf import settings
 from django.views.static import serve
 
 handler404 = erro_view_404
+handler403 = erro_view_403
 handler500 = erro_view_500
 
 urlpatterns = [
