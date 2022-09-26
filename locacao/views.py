@@ -12,7 +12,7 @@ class HomeLcacao(View):
 
 class CreateLocacao(CreateView):#Falta por uma vefificação para validar se o quarto escolido pode ou não ser inserido na locação
     model = Locacao
-    template_name = 'create.html'
+    template_name = 'locacao/create_locacao.html'
     form_class = LocacaoCreaateForms
     #fields = ['cliente','check_in','check_out','status','quarto','servicos']
     success_url = reverse_lazy('locacoes:list_locacao')

@@ -9,8 +9,10 @@ class Locacao(models.Model):
     check_in = models.DateField()
     check_out = models.DateField()
     status= models.BooleanField(default=False)#Se há uma locação para um determinado quarto e cliente
-    quarto = models.ManyToManyField(Quarto)
+    quarto = models.ManyToManyField(Quarto)#Só pode fazer reserva se o quarto estiver desocupado
     servicos = models.ManyToManyField(Servico)
 
     def __str__(self):
         return str(self.cliente)
+    
+#Observações: Uma locação só pode ser feita se o quarto estiver livre desde a data de inicio até a data de encerramento

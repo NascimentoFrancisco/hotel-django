@@ -12,23 +12,24 @@ class LocacaoCreaateForms(forms.ModelForm):
         fields = ['cliente','check_in','check_out','quarto','servicos']
 
         widgets = {
-            'nome': forms.TextInput(attrs={'class':'form-control'}),
+            'cliente': forms.Select(attrs={'class':'form-control'}),
             'check_in': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'check_out': forms.TextInput(attrs={'class':'form-control','type':'date'}),
             'quarto':forms.SelectMultiple(attrs={'class':'form-control'}),
             'servicos':forms.SelectMultiple(attrs={'class':'form-control'}),
         }
     
-    # def clean(self):
-    #     super(LocacaoCreaateForms, self).clean()
+    '''def clean(self):
+        super(LocacaoCreaateForms, self).clean()
 
-    #     quarto = self.cleaned_data.get('quarto')
-    #     data_hj = date.today()
-    #     print(quarto)
-
-    #     _quarto = get_object_or_404(Quarto, numero=quarto.numero)
-
-    #     _quarto.status = True
-    #     _quarto.save()
+        quartos = self.cleaned_data.get('quarto')
         
-    #     return self.changed_data
+        for quarto in quartos:
+            if not quarto.status:
+                _quarto = get_object_or_404(Quarto, pk=quarto.id)
+                _quarto.status = True
+                _quarto.save()
+            else:
+                self.errors['quarto'] = self.error_class([f'Quarto {quarto.numero} ocupado!'])
+        
+        return self.changed_data'''

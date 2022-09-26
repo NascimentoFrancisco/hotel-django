@@ -2,14 +2,7 @@
 {% load crispy_forms_tags %}
 {% block container %}
     {% if user.is_authenticated or user.is_superuser %}
-    <table class="table table-striped">
-      <th><h1>Lista de quartos</h1></th>
-      <th>
-        <a href="{% url 'quartos:create_quarto' %}" class="text-primary">
-          <button type="button" class="btn btn-primary">Adicionar</button>
-        </a>
-      </th>
-    </table>
+    <h1>Lista de quartos livres</h1>
     <table class="table table-bordered">
         <thead>
           <tr>
@@ -26,12 +19,8 @@
             <td>{{quarto.categoria}}</td>
             <td>{{quarto.categoria.preco}}</td>
             <td>
-                <a href="{% url 'quartos:update_quarto' quarto.id%}" class="text-primary">
-                    <button type="button" class="btn btn-primary">Alterar</button>
-                </a>
-                
-                <a href="{% url 'quartos:delete_quarto' quarto.id%}" class="text-danger">
-                    <button type="button" class="btn btn-danger">Apagar</button>
+                <a href="#" class="text-primary">
+                    <button type="button" class="btn btn-primary">Detalhar</button>
                 </a>
             </td>
           </tr>

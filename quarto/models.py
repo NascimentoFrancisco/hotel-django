@@ -13,4 +13,4 @@ class Quarto(models.Model):
         return "Livre"
 
     def __str__(self):
-        return "Nº "+str(self.numero)+", Categoria: "+str(self.categoria)+", Valor: "+str(self.categoria.preco)+", Status: "+self.filtra_status(self.status)
+        return str(self.numero)

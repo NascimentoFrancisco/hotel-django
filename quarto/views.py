@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from quarto.models import Quarto
-from django.views.generic import CreateView, UpdateView,ListView, DeleteView,View
+from django.views.generic import CreateView, UpdateView,ListView, DeleteView, View, DetailView
 from django.urls import reverse_lazy
+from quarto.back_and_quartos import filtra_livres
 # Create your views here.
 
 class HomeQuarto(View):
@@ -23,7 +24,6 @@ class ListQuarto(ListView):
 
     def get_queryset(self):
         queryset = Quarto.objects.all()
-        print(queryset)
         return queryset
 
 class UpdateQuarto(UpdateView):    
@@ -42,3 +42,10 @@ class DeleteQuarto(DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('quartos:list_quarto')
+
+class ListQuartoLivres(ListView):
+    template_name: str = 'locacao/quartos_livre.html'
+
+    def get_queryset(self):
+        queryset = Quarto.objects.filter(status = False)
+        return queryset

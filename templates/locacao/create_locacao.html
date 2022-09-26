@@ -1,7 +1,7 @@
 {% extends 'home.html' %}
 {% load crispy_forms_tags %}
 {% block container %}
-<h2>Cadastros e alterações</h2>
+<h2>Criação de locações de quartos</h2>
     {% if user.is_authenticated or user.is_superuser %}
         <form method="POST" class="table" enctype="multipart/form-data">
         {% csrf_token %}
