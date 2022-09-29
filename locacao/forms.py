@@ -23,12 +23,16 @@ class LocacaoCreaateForms(forms.ModelForm):
         super(LocacaoCreaateForms, self).clean()
 
         quartos = self.cleaned_data.get('quarto')
+        check_in = self.cleaned_data.get('check_in')
+        check_out = self.cleaned_data.get('check_out')
+        
         
         for quarto in quartos:
             if not quarto.status:
-                _quarto = get_object_or_404(Quarto, pk=quarto.id)
-                _quarto.status = True
-                _quarto.save()
+                print(f'Quarto {quarto.numero} livre')
+                #_quarto = get_object_or_404(Quarto, pk=quarto.id)
+                #_quarto.status = True
+                #_quarto.save()
             else:
                 self.errors['quarto'] = self.error_class([f'Quarto {quarto.numero} ocupado!'])
         
