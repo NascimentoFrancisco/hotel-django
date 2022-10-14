@@ -19,13 +19,15 @@ class LocacaoCreaateForms(forms.ModelForm):
             'servicos':forms.SelectMultiple(attrs={'class':'form-control'}),
         }
     
-    '''def clean(self):
+    def clean(self):
         super(LocacaoCreaateForms, self).clean()
 
-        quartos = self.cleaned_data.get('quarto')
-        check_in = self.cleaned_data.get('check_in')
-        check_out = self.cleaned_data.get('check_out')
+        quartos = self.cleaned_data['quarto']
+        check_in = self.cleaned_data['check_in']
+        check_out = self.cleaned_data['check_out']
         
+        print(check_in)
+        print(check_out)
         
         for quarto in quartos:
             if not quarto.status:
@@ -36,4 +38,4 @@ class LocacaoCreaateForms(forms.ModelForm):
             else:
                 self.errors['quarto'] = self.error_class([f'Quarto {quarto.numero} ocupado!'])
         
-        return self.changed_data'''
+        return self.changed_data

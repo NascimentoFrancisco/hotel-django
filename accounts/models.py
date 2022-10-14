@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     username = models.CharField(max_length=50, unique=True, error_messages={'unique' : "Usuário já cadastrado!"})
     password = models.CharField(max_length=255)
-    email = models.EmailField(max_length=245, unique=True,error_messages={'unique' : "Email já cdastrado!"})
+    email = models.EmailField(max_length=245, unique=True,error_messages={'unique' : "Email já cadastrado!"})
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from quarto.models import Quarto
 from django.views.generic import CreateView, UpdateView,ListView, DeleteView, View, DetailView
 from django.urls import reverse_lazy
-from quarto.back_and_quartos import filtra_livres
+#from quarto.back_and_quartos import filtra_livres
 # Create your views here.
 
 class HomeQuarto(View):
